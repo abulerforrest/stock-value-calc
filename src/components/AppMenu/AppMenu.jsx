@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 
 import {
-    fade,
     List,
     Drawer,
     Divider,
@@ -24,6 +23,12 @@ import { StoreContext } from '../../context/store';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
+    listItem: {
+        color: '##EBA63F',
+        '&:hover': {
+            backgroundColor: 'rgba(189,189,188, 0.4)'
+        }
+    },
     drawer: {
         flexShrink: 0,
         width: drawerWidth
@@ -31,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     drawerPaper: {
         color: '#fff',
         width: drawerWidth,
-        backgroundColor: fade(theme.palette.common.black, 0.80)
+        backgroundColor: 'rgba(29,29,44, 0.8)'
     },
     drawerHeader: {
         display: 'flex',
@@ -42,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const AppMenu = () => {
+export const AppMenu = () => {
 
     const classes = useStyles();
     const { drawer } = useContext(StoreContext);
@@ -62,15 +67,15 @@ const AppMenu = () => {
             }}
         >
             <div className={classes.drawerHeader}>
-                <IconButton onClick={handleDrawerClose} color="secondary">
+                <IconButton onClick={handleDrawerClose} color="primary">
                     {classes.direction === 'ltr' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                 </IconButton>
             </div>
             <Divider />
                 <List>
-                {['Historical records'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon >{index % 2 === 0 ? <InboxIcon color="secondary" /> : <MailIcon color="secondary" />}</ListItemIcon>
+                {['Box', 'Graph'].map((text, index) => (
+                    <ListItem className={classes.listItem} button key={text}>
+                        <ListItemIcon >{index % 2 === 0 ? <InboxIcon color="primary" /> : <MailIcon color="secondary" />}</ListItemIcon>
                         <ListItemText primary={text} />
                     </ListItem>
                 ))}
@@ -79,5 +84,3 @@ const AppMenu = () => {
         </Drawer>
     );
 }
-
-export default AppMenu;

@@ -2,7 +2,7 @@ import React from 'react';
 
 import {
     TextField,
-    makeStyles, 
+    makeStyles,
     InputAdornment
 } from '@material-ui/core';
 
@@ -10,7 +10,7 @@ import {
     AttachMoney as AttachMoneyIcon
 } from '@material-ui/icons';
 
-const AppTextField = props => {
+export const AppTextField = props => {
 
     const useStyles = makeStyles(() => ({
         inputContainer: {
@@ -19,36 +19,36 @@ const AppTextField = props => {
         inputLabel: {
             color : '#ffffff !important',
             fontSize: '16px !important',
-            fontWeight: 'bold',
-            textShadow: '0 0 4px rgba(255,255,255, 0.8), 0 0 20px rgba(255,255,255, 0.6), 0 0 10px rgba(230,0,115, 0.4), 0 0 15px rgba(230,0,115, 0.4), 0 0 20px rgba(230,0,115, 0.4)'
+            fontWeight: 'bold'
         },
         cssOutlinedInput: {
             '&$inputFocused $inputOutline': {
-                borderColor: '#F64C72 !important',
-                boxShadow: '0 1px 2px 1px rgba(255, 105, 135, .3)'
+                borderColor: '#E40C2B !important',
+                borderRadius: 4
             }
         },
         disabled: {
             opacity: .5
         },
         inputFocused: {},
-    
+
         inputOutline: {
-            borderWidth: '1px',
-            borderColor: '#ffffff !important',
+            borderRadius: 0,
+            borderWidth: '2px',
+            borderColor: '#3CBCC3 !important',
         }
     }));
 
     const classes = useStyles();
 
-    const inputLabelProps = { 
+    const inputLabelProps = {
         classes: {
             root: classes.inputLabel,
             focused: classes.inputFocused,
         }
     }
 
-    const inputProps = { 
+    const inputProps = {
         classes: {
             notchedOutline: classes.inputOutline,
             root: classes.cssOutlinedInput,
@@ -60,7 +60,7 @@ const AppTextField = props => {
         </InputAdornment>
         )
     }
-    
+
     return (
         <div className={classes.inputContainer}>
             <TextField
@@ -81,5 +81,3 @@ const AppTextField = props => {
         </div>
     );
 }
-
-export default AppTextField;

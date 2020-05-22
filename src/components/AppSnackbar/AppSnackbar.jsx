@@ -8,7 +8,7 @@ import { StoreContext } from '../../context/store';
 
 import Alert from '@material-ui/lab/Alert';
 
-const AppSnackbar = (props) => {
+export const AppSnackbar = (props) => {
 
     const {
         alert,
@@ -37,5 +37,3 @@ const AppSnackbar = (props) => {
         </Snackbar>
     );
 }
-
-export default AppSnackbar;

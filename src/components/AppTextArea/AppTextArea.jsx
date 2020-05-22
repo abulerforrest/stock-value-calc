@@ -29,7 +29,7 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-const AppTextArea = (props) => {
+export const AppTextArea = (props) => {
 
     const classes = useStyles();
 
@@ -51,4 +51,3 @@ const AppTextArea = (props) => {
         />
     );
 }
-export default AppTextArea;

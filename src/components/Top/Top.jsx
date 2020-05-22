@@ -22,11 +22,12 @@ import {
 
 import { StoreContext } from '../../context/store/store';
 
-const Top = props => {
+export const Top = props => {
 
     const useStyles = makeStyles((theme) => ({
         appBar: {
-            backgroundColor: 'rgba(0,0,0, 0.8)',
+            backgroundImage: 'linear-gradient(to right top, #f7f4e9, #f4f1e6, #f1eee3, #efece1, #ece9de, #efe9e0, #f2e9e2, #f4eae5, #f8eeee, #f9f4f5, #fbf9fb, #fefefe)',
+            boxShadow: 'none',
             transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
@@ -41,7 +42,7 @@ const Top = props => {
             }),
         },
             toolbar: {
-            display: 'flex' 
+            display: 'flex'
         },
     }));
 
@@ -60,7 +61,7 @@ const Top = props => {
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
-  
+
     const handleClose = () => {
         setAnchorEl(null);
     };
@@ -80,12 +81,12 @@ const Top = props => {
                 <MenuIcon />
             </IconButton>
             <div className={classes.sectionDesktop}>
-                <IconButton aria-label="show 4 new mails" color="inherit">
+                <IconButton aria-label="show 4 new mails" color="primary">
                     <Badge badgeContent={4} color="secondary">
                         <MailIcon />
                     </Badge>
                 </IconButton>
-                <IconButton aria-label="show 17 new notifications" color="inherit">
+                <IconButton aria-label="show 17 new notifications" color="primary">
                     <Badge badgeContent={17} color="secondary">
                         <NotificationsIcon />
                     </Badge>
@@ -97,7 +98,7 @@ const Top = props => {
                     aria-controls={null}
                     aria-haspopup="true"
                     onClick={handleClick}
-                    color="inherit"
+                    color="primary"
                 >
                     <AccountCircle />
                 </IconButton>
@@ -129,5 +130,3 @@ const Top = props => {
     );
 
 }
-
-export default Top;
